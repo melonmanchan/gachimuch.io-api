@@ -2,12 +2,14 @@
 __pycache__/
 *.py[cod]
 
+#PyCharm project
+.idea/
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
-env/
+venv/
 build/
 develop-eggs/
 dist/

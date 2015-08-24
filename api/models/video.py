@@ -2,9 +2,11 @@ __author__ = 'matti'
 from common.database import db
 
 class VideoModel(db.Model):
+    __tablename__ = 'video'
+
     id          = db.Column(db.Integer, primary_key=True)
     title       = db.Column(db.String(80))
-    description = db.Column(db.Text(500))
+    description = db.Column(db.Text)
     nicoid      = db.Column(db.String(20), unique=True)
     videourl    = db.Column(db.String(100), unique=True)
 

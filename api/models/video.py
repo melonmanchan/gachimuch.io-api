@@ -20,3 +20,8 @@ class VideoModel(db.Model):
         self.videourl = videourl
         self.originalupload = originalupload
         self.reupload = reupload
+
+    def tojson(self):
+        return {'id': self.id, 'title': self.title, 'description': self.description,
+                'nicoid': self.nicoid, 'videourl': self.videourl,
+                'originalupload': str(self.originalupload), 'reupload': str(self.reupload)}

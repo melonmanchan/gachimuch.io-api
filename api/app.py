@@ -9,7 +9,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(DebugConfig)
     api = Api(app)
-    api.add_resource(Video, '/video')
+    api.add_resource(Video, '/video', '/video/<int:videoid>')
     db.init_app(app)
     return app
 

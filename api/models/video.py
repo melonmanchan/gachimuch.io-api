@@ -1,8 +1,7 @@
 __author__ = 'matti'
-from app import db
+from common.database import db
 
-## DB models in here for now, due to Python import problems...
-class VideoModel(db.model):
+class VideoModel(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     title       = db.Column(db.String(80))
     description = db.Column(db.Text(500))

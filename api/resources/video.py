@@ -1,6 +1,6 @@
 __author__ = 'matti'
 
-from app import db
+from common.database import db
 import datetime
 
 from flask import jsonify
@@ -12,10 +12,8 @@ class Video(Resource):
         return {'video': 'test'}
 
     def post(self):
-        video = VideoModel('title', 'desc', '12345', 'http://asd.com', datetime.datetime.now(),
+        video = VideoModel('title', 'desc', '12312445', 'http://asd123.com', datetime.datetime.now(),
                       datetime.datetime.now())
         db.session.add(video)
         db.session.commit()
-        return jsonify(video), 200
-        return 200
-
+        return  200

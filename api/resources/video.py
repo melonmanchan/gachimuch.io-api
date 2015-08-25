@@ -9,7 +9,11 @@ from models.video import VideoModel
 
 class Video(Resource):
     def get(self, videoid):
-        resp = VideoModel.query.get_or_404(videoid).tojson()
+        video = VideoModel.query.get_or_404(videoid)
+        video.views += 1
+        db.session.add(video)
+        db.session.commit()
+        resp = {'video': video.tojson()}
         return jsonify(resp)
 
     def post(self):

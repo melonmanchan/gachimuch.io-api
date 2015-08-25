@@ -5,6 +5,7 @@ class VideoModel(db.Model):
     __tablename__ = 'video'
 
     id          = db.Column(db.Integer, primary_key=True)
+    views       = db.Column(db.Integer)
     title       = db.Column(db.String(80))
     description = db.Column(db.Text)
     nicoid      = db.Column(db.String(20), unique=True)
@@ -15,6 +16,7 @@ class VideoModel(db.Model):
 
     def __init__(self, title, description, nicoid, videourl, originalupload, reupload):
         self.title = title
+        self.views = 0
         self.description = description
         self.nicoid = nicoid
         self.videourl = videourl
@@ -23,5 +25,5 @@ class VideoModel(db.Model):
 
     def tojson(self):
         return {'id': self.id, 'title': self.title, 'description': self.description,
-                'nicoid': self.nicoid, 'videourl': self.videourl,
+                'nicoid': self.nicoid, 'videourl': self.videourl, 'views': self.views,
                 'originalupload': str(self.originalupload), 'reupload': str(self.reupload)}
